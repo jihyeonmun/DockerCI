@@ -228,9 +228,3 @@ For more examples and ideas, visit:
 # 1강 완료!
 
 ---
-
-# 2강 시작!!
-
-# 2-1강 도커 이미지 내부 파일 구조 보기
-
-![innerImage](innerImage.png)
