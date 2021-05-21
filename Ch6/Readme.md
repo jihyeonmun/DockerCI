@@ -149,3 +149,21 @@ builder -> 여기 FROM부터는 다음 FROM 전까지는 모두 builder stage라
 > Dockerhub 공식 Nginx 설명
 > FROM nginx
 > COPY static-html-directory /usr/share/nginx/html
+
+```
+FROM node:alpine as builder
+WORKDIR '/usr/src/app'
+COPY package.json .
+RUN npm install
+COPY ./ ./
+RUN npm run build
+
+FROM nginx
+COPY --from=builder /usr/src/app/build /usr/share/nginx/html
+
+
+```
+
+실제 수행
+
+docker build -f Dockerfile.dev
